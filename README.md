@@ -204,6 +204,13 @@ resp = client.chat.completions.create(
 )
 ```
 
+## Limitations
+
+- **No image/multimodal input**: Gemini's image upload requires a proprietary streaming RPC protocol (WIZ/ProcessFile) that cannot be replicated in a standard HTTP proxy. Image inputs in messages will be ignored with a note.
+- **Not real Pro/Ultra**: Without a paid subscription cookie, `gemini-3.1-pro` routes to the same Flash model. The "Pro" label is a UI preference, not a backend model switch.
+- **Single-turn only**: Each request is an independent conversation. Multi-turn context is simulated by including previous messages in the prompt.
+- **Rate limits**: Google may throttle high-frequency requests. The server retries automatically but sustained heavy use may be blocked.
+
 ## Requirements
 
 - Python 3.8+
@@ -218,6 +225,7 @@ The model selection is controlled by field `[79]` in the request payload, mapped
 
 ## Acknowledgments
 
+- [GenericAgent](https://github.com/lsdefine/GenericAgent) — 本项目核心开发依仗 GA 提供的 AI 能力
 - [linux.do](https://linux.do) community
 - Inspired by the open-source API proxy ecosystem
 
