@@ -1,0 +1,11 @@
+name = "gemini-web2api"
+main = "src/index.ts"
+compatibility_date = "2025-05-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+DEFAULT_MODEL = "gemini-3.5-flash"
+GEMINI_BL = "boq_assistant-bard-web-server_20260525.09_p0"
+API_KEYS = ""            # comma-separated; leave empty for no auth
+LOG_REQUESTS = "true"
+COOKIE_JSON = ""         # optional: {"cookie":"...","sapisid":"..."}
