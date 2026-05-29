@@ -273,6 +273,22 @@ gemini-web2api-worker/
 
 ---
 
+
+## ⚠️ 已知限制
+
+### Tool Calling / Function Calling
+
+当前 Tool Calling（工具调用）**并非原生支持**，而是通过**提示词约束**（Prompt Engineering）模拟实现的：
+
+- 在系统提示词中注入可用工具列表和调用格式说明
+- 模型输出中提取 `` `tool_call` `` 代码块来模拟函数调用
+- 这种方式**非常不稳定**，模型可能：
+  - 忽略工具调用指令，直接返回文本
+  - 调用格式不对，无法解析
+  - 产生幻觉，调用不存在的工具
+
+如果你需要稳定的 Tool Calling，建议使用 Google 官方的 Gemini API。
+
 ## License
 
 MIT
